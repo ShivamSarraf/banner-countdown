@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Banner from './Components/Banner';
+import Dashboard from './Components/Dashboard';
 import './App.css';
 
 function App() {
+  const [visible, setVisible] = useState(true);
+  const [description, setDescription] = useState("Welcome to our website!");
+  const [timer, setTimer] = useState(10);
+  const [link, setLink] = useState("#");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Dashboard 
+        setVisible={setVisible} 
+        setDescription={setDescription} 
+        setTimer={setTimer} 
+        setLink={setLink} 
+      />
+      <Banner 
+        visible={visible} 
+        description={description} 
+        timer={timer} 
+        link={link} 
+      />
     </div>
   );
 }
